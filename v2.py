@@ -9,4 +9,3 @@ if __name__ == "__main__":
         pass
     except Exception as e:
         print(e)
-print('everything is good!')
