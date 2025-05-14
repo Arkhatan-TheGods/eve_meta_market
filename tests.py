@@ -1,7 +1,5 @@
 import requests
 
-
-
 def status_server():
 
     site = 'https://esi.evetech.net/'
@@ -26,8 +24,6 @@ def get_regions_id(site, conn):
         else:
             print(f"Erro ao obter regiões: {response.status_code}")
             return None
-        
-
 
 if __name__ == "__main__":
     result = status_server()
