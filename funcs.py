@@ -1,5 +1,5 @@
 def urls():
-    {'main':'https://esi.evetech.net/ui/',
+    url = {'main':'https://esi.evetech.net/ui/',
      'regions_id':'https://esi.evetech.net/latest/universe/regions/',
      'regions_name':'https://esi.evetech.net/latest/universe/regions/{region_id}/',
      'constellations_id':'https://esi.evetech.net/latest/universe/constellations/',
@@ -7,4 +7,4 @@ def urls():
      'systems_id':'https://esi.evetech.net/latest/universe/systems/',
      'systems_name':'https://esi.evetech.net/latest/universe/systems/{system_id}/',
      }
-    
+    return url

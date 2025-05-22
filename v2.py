@@ -2,6 +2,9 @@ import requests, sqlite3, funcs
 #from funcs import fodeu
 if __name__ == "__main__":
     try:
+        urls = funcs.urls()
+        if requests.get(urls['main']) == '200':
+            print('funcionou')
         
         #main_url = 'https://esi.evetech.net/ui/'
         #conn = requests.get(main_url)
