@@ -1,3 +1,4 @@
 *.amb
 __pycache__/
 .env/
+config.env
