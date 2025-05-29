@@ -9,9 +9,14 @@ if __name__ == '__main__':
         print('banco de dados existe.')
         update_region = input(str('deseja adicionar/atualizar regiões (y/n?').lower())
         if update_region == 'y':
-            print('ok')
-            #if requests.get(urls['main']) == 200:
-            print(urls['regions'])
+            #print('ok')
+            if requests.get(urls['main']).status_code == 200:
+                regions = requests.get(urls['regions'])
+                constellations = requests.get(urls['constellations'])
+                systems = requests.get(urls['systems'])
+                #print('conexão deu 200')
+                pass
+            '''print(urls['regions'])
     
             regions = requests.get(urls['regions'])
             
@@ -30,7 +35,7 @@ if __name__ == '__main__':
                         break
 
                     break
-                break
+                break'''
 
     else:
         print('banco não existe')
