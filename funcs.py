@@ -6,3 +6,6 @@ def urls():
      'systems':'https://esi.evetech.net/latest/universe/systems/',
      }
     return url
+
+def create_table_region():
+     return '''CREATE TABLE IF NOT EXISTS Regions (region_id INTEGER, name TEXT, description TEXT);'''
