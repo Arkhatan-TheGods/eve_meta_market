@@ -16,7 +16,7 @@ def create_table_constellation():
 
 def create_table_system():
      return '''CREATE TABLE IF NOT EXISTS Systems 
-     (system_id INTEGER, constellation_id INTEGER, region_id INTEGER, name TEXT);'''
+     (system_id INTEGER, constellation_id INTEGER, system_id INTEGER, name TEXT);'''
 
 def create_table_item():
      return '''CREATE TABLE IF NOT EXISTS Itens (item_id INTEGER, name TEXT);'''

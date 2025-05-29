@@ -1,5 +1,4 @@
-*.amb
-__pycache__/
+__pycache__
 .env/
 config.env
 data_eve.db

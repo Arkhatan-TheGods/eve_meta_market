@@ -16,8 +16,10 @@ if __name__ == '__main__':
                 constellations = requests.get(urls['constellations'])
                 systems = requests.get(urls['systems'])
                 #print(type(regions.json()))
+                
                 for region in regions.json():
-                    pass
+                    pass 
+                    
             '''print(urls['regions'])
     
             regions = requests.get(urls['regions'])
