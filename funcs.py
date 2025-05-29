@@ -8,4 +8,15 @@ def urls_origins():
     return url
 
 def create_table_region():
-     return '''CREATE TABLE IF NOT EXISTS Regions (region_id INTEGER, name TEXT, description TEXT);'''
+     return '''CREATE TABLE IF NOT EXISTS Regions (region_id INTEGER, name TEXT);'''
+
+def create_table_constellation():
+     return '''CREATE TABLE IF NOT EXISTS Constellations 
+     (constellation_id INTEGER, region_id INTEGER, name TEXT);'''
+
+def create_table_system():
+     return '''CREATE TABLE IF NOT EXISTS Systems 
+     (system_id INTEGER, constellation_id INTEGER, region_id INTEGER, name TEXT);'''
+
+def create_table_item():
+     return '''CREATE TABLE IF NOT EXISTS Itens (item_id INTEGER, name TEXT);'''

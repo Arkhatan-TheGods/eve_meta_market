@@ -7,11 +7,30 @@ if __name__ == '__main__':
     urls = urls_origins()
     if os.path.exists(db_route):
         print('banco de dados existe.')
-        add_data = input(str('deseja adicionar/atualizar regiões (y/n?').lower())
-        if add_data == 'y':
-            if requests.get(urls['main']) == 200:
-                
-                pass
+        update_region = input(str('deseja adicionar/atualizar regiões (y/n?').lower())
+        if update_region == 'y':
+            print('ok')
+            #if requests.get(urls['main']) == 200:
+            print(urls['regions'])
+    
+            regions = requests.get(urls['regions'])
+            
+            for region_id in regions.json():
+                #print(region)
+                region_data = requests.get(f'{urls['regions']}{region_id}')
+                #print(region_data.json())
+                region_data_json = region_data.json()
+                #print(region_data_json['constellations'])
+                for constellation_id in region_data_json['constellations']:
+                    constellation_data = requests.get(f'{urls['constellations']}{constellation_id}')
+                    #print(constellation_data.json())
+                    for system_id in constellation_data.json()['systems']:
+                        system_data = requests.get(f'{urls['systems']}{system_id}')
+                        print(system_data.json())
+                        break
+
+                    break
+                break
 
     else:
         print('banco não existe')
