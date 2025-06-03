@@ -29,3 +29,17 @@ def regions_id(url) -> list:
      for region in regions:
           data.append((region,None))
      return data
+
+def constellations_id(url) -> list:
+     data = []
+     constellations = requests.get(url['constellations'])
+     for constellation in constellations:
+          data.append((constellation,None))
+     return data
+
+def regions_id(url) -> list:
+     data = []
+     systems = requests.get(url['systems'])
+     for system in systems:
+          data.append((system,None))
+     return data
