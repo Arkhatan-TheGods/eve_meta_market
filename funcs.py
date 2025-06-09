@@ -6,6 +6,7 @@ def urls_origins():
      'regions':'https://esi.evetech.net/latest/universe/regions/',
      'constellations':'https://esi.evetech.net/latest/universe/constellations/',
      'systems':'https://esi.evetech.net/latest/universe/systems/',
+     'market_groups':'https://esi.evetech.net/markets/groups/'
      }
     return url
 
@@ -22,6 +23,10 @@ def create_table_system() -> str:
 
 def create_table_item() -> str:
      return '''CREATE TABLE IF NOT EXISTS Itens (item_id INTEGER, name TEXT);'''
+
+def create_table_market_group() -> str:
+     return '''CREATE TABLE IF NOT EXISTS Market_Group (ID INTEGER PRIMARY KEY AUTOINCREMENT,group_id INTEGER, name TEXT);'''
+
 
 def regions_id(url) -> list:
      data = []
@@ -43,3 +48,9 @@ def regions_id(url) -> list:
      for system in systems:
           data.append((system,None))
      return data
+
+def markets_groups(url):
+     data = []
+     groups = requests.get(['markets_groups'])
+     for group in groups:
+          data.append((group,None))
