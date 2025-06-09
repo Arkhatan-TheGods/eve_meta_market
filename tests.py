@@ -1,32 +1,18 @@
 import requests
+from time import sleep
+base_url = 'https://esi.evetech.net/markets/groups/'
+conn = requests.get(base_url)
+data = []
 
-def status_server():
+for groups in conn.json():
+    data.append(groups)
+    #print(data)
+    #sleep(2)
 
-    site = 'https://esi.evetech.net/'
-    conn = requests.get(site)
-    if conn.status_code == 200:
-        print('Tudo certo!')
-        return site, conn
-    else:
-        print(f"Erro: {conn.status_code} - {conn.reason}")
-        return None
+for id in data:
+    position = data[id]
+    conn2 = requests.get(f'{base_url}{position}').json()
+    print(conn2)
+    sleep(5)
 
-def get_regions_id(site, conn):
-
-    if site and conn:  # Ensure valid values
-        url = f"{site}latest/universe/regions/"
-        response = requests.get(url)
-
-        if response.status_code == 200:
-            regions_id = response.json()
-            print(f"Regiões encontradas: {regions_id}")
-            return regions_id
-        else:
-            print(f"Erro ao obter regiões: {response.status_code}")
-            return None
-
-if __name__ == "__main__":
-    result = status_server()
-    if result:
-        site, conn = result
-        get_regions_id(site, conn)
+"""IMPORTANTE: o id do Ship Equipment é 9"""
